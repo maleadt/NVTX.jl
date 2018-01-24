@@ -12,7 +12,8 @@ function push_range(msg::String)
     if active[]
         rv = ccall((:nvtxRangePushA, libnvtx), Cint, (Cstring,), msg)
         if rv < 0
-            warn("Could not push a new range")
+            # FIXME: this fails when not running under `nvprof`
+            #warn("Could not push a new range")
         end
     end
 end
@@ -20,7 +21,8 @@ function pop_range()
     if active[]
         rv = ccall((:nvtxRangePop, libnvtx), Cint, ())
         if rv < 0
-            warn("Could not pop a new range")
+            # FIXME: this fails when not running under `nvprof`
+            #warn("Could not pop a new range")
         end
     end
 end
