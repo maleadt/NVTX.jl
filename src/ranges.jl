@@ -34,8 +34,8 @@ end
 """
     range(msg)
 
-Create and start a new range. The range is not automatically ended, use
-[`end(::Range)`](@ref) for that.
+Create and start a new range. The range is not automatically stopped, use
+[`stop(::Range)`](@ref) for that.
 
 Use this API if you need overlapping ranges, for scope-based use [`@range`](@ref) instead.
 """
@@ -43,7 +43,7 @@ function range(msg)
     Range(start_range(msg))
 end
 
-end(r::Range) = end_range(r.id)
+stop(r::Range) = end_range(r.id)
 
 """
     @range "msg" ex
