@@ -12,13 +12,13 @@ if !configured
 end
 
 
-const active = Ref{Bool}(true)
+const active = Ref{Bool}(false)
 
 """
     start()
     stop()
 
-Controls whether calls to NVTX.jl effectively generate profiling data (enabled by default).
+Controls whether calls to NVTX.jl effectively generate profiling data (disabled by default).
 This is a feature of NVTX.jl, useful in combination with nvprof's `--profile-from-start off`
 to narrow down the region where profiling data is collected.
 
@@ -32,8 +32,7 @@ stop()  = (active[] = false)
 """
     @activate ex
 
-Runs the expressions with the NVTX API activated. Requires a manual call to [`stop`](@ref)
-to disable the API beforehand.
+Runs the expressions with the NVTX API activated.
 """
 macro activate(ex)
     quote
