@@ -44,9 +44,9 @@ macro activate(ex)
 end
 
 
+include("domains.jl")
 include("markers.jl")
 include("ranges.jl")
-# TODO: domains
 # TODO: CUDA API
 
 
