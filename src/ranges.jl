@@ -5,7 +5,7 @@ function start_range(msg::String)
     active[] && ccall((:nvtxRangeStartA, libnvtx), nvtxRangeId_t, (Cstring,), msg)
 end
 function end_range(id::nvtxRangeId_t)
-    active[] && ccall((:nvtxRangeEnd, libnvtx), Void, (nvtxRangeId_t,), id)
+    active[] && ccall((:nvtxRangeEnd, libnvtx), Cvoid, (nvtxRangeId_t,), id)
 end
 
 function push_range(msg::String)
