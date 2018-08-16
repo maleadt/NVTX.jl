@@ -20,6 +20,12 @@ function main()
 
     ## discover stuff
     toolkit_dirs = CUDAapi.find_toolkit()
+    # On Windows everything is sad and different
+    if Sys.iswindows()
+        path = "C:\\Program Files\\NVIDIA Corporation\\NvToolsExt"
+        suffix = Sys.ARCH == :x86_64 ? "x64" : "Win32"
+        push!(toolkit_dirs, joinpath(path, "bin", suffix))
+    end
 
     config[:libnvtx] = CUDAapi.find_cuda_library("nvToolsExt", toolkit_dirs)
     if config[:libnvtx] == nothing
