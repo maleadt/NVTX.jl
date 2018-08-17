@@ -1,0 +1,5 @@
+name = "NVTX"
+uuid = "abe033e4-6c58-5f6f-85fa-ab729cab124a"
+
+[deps]
+CUDAapi = "3895d2a7-ec45-59b8-82bb-cfc6a382f9b3"

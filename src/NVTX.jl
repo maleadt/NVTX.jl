@@ -1,5 +1,3 @@
-__precompile__()
-
 module NVTX
 
 const ext = joinpath(dirname(@__DIR__), "deps", "ext.jl")
